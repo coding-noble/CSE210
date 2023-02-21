@@ -14,7 +14,7 @@ class Program
         {
             guessCount = 0;
             magicNumber = randomGenerator.Next(1, 101);
-            Console.WriteLine(magicNumber);
+            // Console.WriteLine(magicNumber);
             while (userGuess != magicNumber)
             {
                 Console.Write("What is your userGuess? ");
