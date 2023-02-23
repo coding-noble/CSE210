@@ -1,7 +1,6 @@
 using System;
 public class Prompt
 {
-    static Random _random = new Random();
     static List<string> _prompts = new List<string>()
     {
     "What was the most peaceful moment during the day?",
@@ -18,6 +17,6 @@ public class Prompt
     "Who helped you the most today? Who did you help the most?",
     "Describe your day from another person's perspective. Is it different from yours?"
     };
-    int ranPromptIndex = _random.Next(0, _prompts.Count);
-    public string _prompt = _prompts[_random.Next(0, (_prompts.Count - 1))];
+    static Random _random = new Random();
+    public string _promptText = _prompts[_random.Next(0, (_prompts.Count - 1))];
 }
