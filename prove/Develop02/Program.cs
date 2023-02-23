@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        int userInput = 0;
+        int userInput;
         Journal newJournal = new Journal();
         do
         {
@@ -33,12 +33,12 @@ class Program
                 case 4:
                     newJournal.Save();
                     break;
-                case 5:
+                default:
+                    Console.Write("Invalid Input! Hit Enter to Contiune.");
+                    Console.Read();
                     break;
             }
         }
         while (userInput != 5);
-        {
-        }
     }
 }
