@@ -41,7 +41,6 @@ public class Journal
             _entries.Add(entry);
         }
     }
-
     public void Save(string fileName)
     {
         if (!fileName.EndsWith(".txt"))
@@ -56,7 +55,6 @@ public class Journal
             }
         }
     }
-
     public void SaveAs()
     {
         Console.Write("What is the file name? ");
