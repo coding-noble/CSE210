@@ -11,7 +11,6 @@ public class Journal
         entry._userEntry = Console.ReadLine();
         _entries.Add(entry);
     }
-
     public void Display()
     {
         foreach (Entry entry in _entries)
@@ -20,12 +19,9 @@ public class Journal
         }
         Console.ReadLine();
     }
-
-    public void Load()
+    public void Load(string fileName)
     {
         _entries.Clear();
-        Console.Write("What is the file name? ");
-        string fileName = Console.ReadLine();
         if (!fileName.EndsWith(".txt"))
         {
             fileName += ".txt";
@@ -45,7 +41,23 @@ public class Journal
             _entries.Add(entry);
         }
     }
-    public void Save()
+
+    public void Save(string fileName)
+    {
+        if (!fileName.EndsWith(".txt"))
+        {
+            fileName += ".txt";
+        }
+        using (StreamWriter streamWriter = new StreamWriter(fileName))
+        {
+            foreach (Entry entry in _entries)
+            {
+                streamWriter.WriteLine($"{entry._entryDate}: {entry._prompt._promptText}: {entry._userEntry}");
+            }
+        }
+    }
+
+    public void SaveAs()
     {
         Console.Write("What is the file name? ");
         string fileName = Console.ReadLine();

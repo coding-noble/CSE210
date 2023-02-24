@@ -4,41 +4,108 @@ class Program
 {
     static void Main(string[] args)
     {
-        int userInput;
+        bool loaded = false;
+        bool madeChanges = false;
+        string fileName = "";
+        string userInput;
         Journal newJournal = new Journal();
         do
         {
             Console.Clear();
-            Console.Write("""
+            Console.WriteLine($"""
             Please select one of the following choices:
-            1: Write
-            2: Display
-            3: Load
-            4: Save
-            5: Exit
+            ~ Write
+            ~ Display
+            ~ Load
+            """);
+            if (loaded)
+            {
+                Console.WriteLine("""
+                ~ Unload
+                ~ Save
+                """);
+            }
+            Console.Write("""
+            ~ Save As
+            ~ Exit
             What would you like to do? 
             """);
-            userInput = int.Parse(Console.ReadLine());
+            userInput = Console.ReadLine().ToUpper();
             switch (userInput)
             {
-                case 1:
+                case "WRITE":
                     newJournal.Write();
+                    madeChanges = true;
                     break;
-                case 2:
+                case "DISPLAY":
                     newJournal.Display();
                     break;
-                case 3:
-                    newJournal.Load();
+                case "LOAD":
+                    Console.Write("What is the file name? ");
+                    fileName = Console.ReadLine();
+                    newJournal.Load(fileName);
+                    loaded = true;
                     break;
-                case 4:
-                    newJournal.Save();
+                case "UNLOAD":
+                    if (!loaded)
+                    {
+                        Console.Write("Invalid Input! Hit Enter to Contiune.");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        loaded = false;
+                    }
+                    break;
+                case "SAVE":
+                    if (!loaded)
+                    {
+                        newJournal.SaveAs();
+                    }
+                    else
+                    {
+                        newJournal.Save(fileName);
+                    }
+                    madeChanges = false;
+                    break;
+                case "SAVE AS":
+                    newJournal.SaveAs();
+                    madeChanges = false;
                     break;
                 default:
-                    Console.Write("Invalid Input! Hit Enter to Contiune.");
-                    Console.Read();
+                    if (userInput != "EXIT")
+                    {
+                        Console.Write("Invalid Input! Hit Enter to Contiune.");
+                        Console.ReadLine();
+                    }
                     break;
             }
         }
-        while (userInput != 5);
+        while (userInput != "EXIT");
+        {
+            if (madeChanges)
+            {
+                while (true)
+                {
+                    Console.Write("You have unsaved changes would you like to save them? (yes/no) ");
+                    userInput = Console.ReadLine().ToUpper();
+                    Console.WriteLine(userInput);
+                    if (userInput == "YES" && loaded)
+                    {
+                        newJournal.Save(fileName);
+                        continue;
+                    }
+                    else if (userInput == "YES" && !loaded)
+                    {
+                        newJournal.SaveAs();
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Respawns:");
+                    }
+                }
+            }
+        }
     }
 }
