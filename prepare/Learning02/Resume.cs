@@ -9,8 +9,7 @@ public class Resume
         Console.WriteLine(_name);
         foreach (Job job in _jobs)
         {
-            Console.WriteLine($"{job._jobTitle} ({job._company}) {job._startYear}-{job._endYear}");
+            job.Display();
         }
-
     }
 }
