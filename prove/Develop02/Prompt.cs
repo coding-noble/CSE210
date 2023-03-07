@@ -18,5 +18,5 @@ public class Prompt
         "Describe your day from another person's perspective. Is it different from yours?"
     };
     static Random _random = new Random();
-    public string _promptText = _prompts[_random.Next(0, (_prompts.Count - 1))];
+    public string _promptText = _prompts[_random.Next(0, (_prompts.Count() - 1))];
 }

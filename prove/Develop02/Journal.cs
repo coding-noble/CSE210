@@ -15,12 +15,14 @@ public class Journal
     {
         foreach (Entry entry in _entries)
         {
-            Console.WriteLine($"{entry._entryDate}: {entry._prompt._promptText}: {entry._userEntry}");
+            entry.Display();
         }
         Console.ReadLine();
     }
-    public void Load(string fileName)
+    public void Load()
     {
+        Console.Write("What is the file name? ");
+        string fileName = Console.ReadLine();
         _entries.Clear();
         if (!fileName.EndsWith(".txt"))
         {

@@ -11,7 +11,7 @@ class Program
         Journal newJournal = new Journal();
         do
         {
-            Console.Clear();
+            // Console.Clear();
             Console.WriteLine($"""
             Please select one of the following choices:
             ~ Write
@@ -41,9 +41,7 @@ class Program
                     newJournal.Display();
                     break;
                 case "LOAD":
-                    Console.Write("What is the file name? ");
-                    fileName = Console.ReadLine();
-                    newJournal.Load(fileName);
+                    newJournal.Load();
                     loaded = true;
                     break;
                 case "UNLOAD":
