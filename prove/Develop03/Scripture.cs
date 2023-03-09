@@ -27,6 +27,17 @@ public class Scripture
         }
         return true;
     }
+
+    public void DisplayScripture()
+    {
+        Console.Clear();
+        Console.Write($"{GetRefrence()} -> ");
+        foreach (Word word in GetWords())
+        {
+            Console.Write($"{word.GetWord()} ");
+        }
+        Console.Write("\n\nPress ENTER to hide words or type quit to exit:");
+    }
     public void HideWords(int wordCount = 1)
     {
         Random random = new Random();

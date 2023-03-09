@@ -2,8 +2,7 @@ using System;
 
 public class Fraction
 {
-    private int _top;
-    private int _bottom;
+    private int _top, _bottom;
     public Fraction()
     {
         _top = 1;

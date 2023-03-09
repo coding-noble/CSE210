@@ -64,23 +64,15 @@ class Program
         do
         {
             Console.Clear();
-            Console.Write($"{scripture.GetRefrence()} -> ");
-            foreach (Word word in scripture.GetWords())
-            {
-                Console.Write($"{word.GetWord()} ");
-            }
-            Console.WriteLine();
-            Console.Write("\nPress ENTER to hide words or type quit to exit:");
+            
+            scripture.DisplayScripture();
             userInput = Console.ReadLine();
             scripture.HideWords(dificulty);
         } while (userInput != "quit" && !scripture.CompletelyHidden());
 
         Console.Clear();
         Console.Write($"{scripture.GetRefrence()} -> ");
-        foreach (Word word in scripture.GetWords())
-        {
-            Console.Write($"{word.GetWord()} ");
-        }
+        scripture.DisplayScripture();
         Console.WriteLine();
         Console.Write("\nPress ENTER or type quit to exit:");
         Console.ReadLine();
