@@ -5,6 +5,7 @@ internal abstract class Activity
     protected string ActivityDescription { get; set; }
     protected string ActivityType { get; set; }
     protected int Duration { get; set; }
+    public abstract void StartActivity();
     public Activity(string activityType, string activityDescription)
     {
         ActivityType = activityType;

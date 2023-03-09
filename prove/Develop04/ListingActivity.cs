@@ -3,7 +3,8 @@ internal class ListingActivity : Activity
     private string[] _prompts = System.IO.File.ReadAllLines("ListingPrompts");
     private int ResponseCount { get; set; }
     public ListingActivity() : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.") { }
-    internal void StartActivity()
+
+    public override void StartActivity()
     {
         Welcome();
         Console.Write($"""
