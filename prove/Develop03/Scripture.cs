@@ -16,18 +16,17 @@ public class Scripture
         }
         this.SetWords(verseText);
     }
-    public bool CompletelyHidden()
+    public bool AllHidden()
     {
-        foreach (Word wordOBJ in _words)
+        foreach (Word word in _words)
         {
-            if (wordOBJ.GetVisibility())
+            if (word.GetVisibility())
             {
                 return false;
             }
         }
         return true;
     }
-
     public void DisplayScripture()
     {
         Console.Clear();
@@ -52,7 +51,7 @@ public class Scripture
                 wordsRemoved++;
             }
         }
-        while (!CompletelyHidden() && wordsRemoved != wordCount);
+        while (!AllHidden() && wordsRemoved != wordCount);
     }
     public string GetRefrence()
     {

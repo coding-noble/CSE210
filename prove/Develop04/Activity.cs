@@ -1,6 +1,6 @@
-internal abstract class Activity
+public abstract class Activity
 {
-    protected Random RandomGenorator { get; set; }
+    protected Random RandomGenerator { get; set; }
     protected DateTime ActivityStartTime { get; set; }
     protected string ActivityDescription { get; set; }
     protected string ActivityType { get; set; }
@@ -10,7 +10,7 @@ internal abstract class Activity
     {
         ActivityType = activityType;
         ActivityDescription = activityDescription;
-        RandomGenorator = new Random();
+        RandomGenerator = new Random();
     }
     protected void Welcome()
     {
@@ -26,14 +26,14 @@ internal abstract class Activity
         Console.Clear();
         Console.CursorVisible = false;
         Console.WriteLine("Get Ready...");
-        WaitingAnimation(5);
+        WaitingAnimation();
     }
     protected void EndingMessage()
     {
         Console.WriteLine("\n\nWell Done!!!");
-        WaitingAnimation(4);
-        Console.WriteLine($"\nYou compleated {Duration} seconds of the {ActivityType.ToLower()}.");
-        WaitingAnimation(6);
+        WaitingAnimation();
+        Console.WriteLine($"\nYou completed {Duration} seconds of the {ActivityType.ToLower()}.");
+        WaitingAnimation();
         Console.CursorVisible = true;
     }
     protected void WaitingAnimation(int cycleCount = 1)

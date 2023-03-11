@@ -5,11 +5,11 @@ public class Journal
     public List<Entry> _entries = new List<Entry>();
     public void Write()
     {
-        Entry entry = new Entry();
-        Console.WriteLine($"{entry._prompt._promptText}");
+        Entry newEntry = new Entry();
+        Console.WriteLine($"{newEntry._prompt._promptText}");
         Console.Write(">");
-        entry._userEntry = Console.ReadLine();
-        _entries.Add(entry);
+        newEntry._userEntry = Console.ReadLine();
+        _entries.Add(newEntry);
     }
     public void Display()
     {

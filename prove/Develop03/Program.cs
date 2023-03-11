@@ -64,11 +64,10 @@ class Program
         do
         {
             Console.Clear();
-            
             scripture.DisplayScripture();
             userInput = Console.ReadLine();
             scripture.HideWords(dificulty);
-        } while (userInput != "quit" && !scripture.CompletelyHidden());
+        } while (userInput != "quit" && !scripture.AllHidden());
 
         Console.Clear();
         Console.Write($"{scripture.GetRefrence()} -> ");

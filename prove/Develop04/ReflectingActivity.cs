@@ -9,13 +9,13 @@ internal class ReflectingActivity : Activity
         Console.WriteLine($"""
         Consider the following prompt:
 
-        ~ {_prompts[RandomGenorator.Next(_prompts.Count())]} ~
+        ~ {_prompts[RandomGenerator.Next(_prompts.Count())]} ~
 
-        When you have something in mind press ENTER to contiue.
+        When you have something in mind press ENTER to continue.
         """);
         Console.ReadLine();
         Console.Clear();
-        Console.Write(_questions[RandomGenorator.Next(_questions.Count())]);
+        Console.Write(_questions[RandomGenerator.Next(_questions.Count())]);
         ActivityStartTime = DateTime.Now;
         while (DateTime.Now < ActivityStartTime.AddSeconds(Duration))
         {
